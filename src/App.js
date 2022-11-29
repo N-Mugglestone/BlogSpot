@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+
+import AddAUser from '../src/Components/AddAUser.jsx';
+import NewPost from '../src/Components/NewPost.jsx';
+import Posts from '../src/Components/Posts.jsx';
+import Header from '../src/Components/Header.jsx';
+import Footer from '../src/Components/Footer.jsx';
+import HomePage from '../src/Components/HomePage.jsx';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+       <>
+< Header />
+
+    <Router>
+        <Routes>
+
+          <Route path="/" element={<HomePage />} />
+
+          <Route path="/AddAUser" element={<AddAUser />} />
+          <Route path="/newPost" element={<NewPost />} />
+          <Route path="/Posts" element={<Posts />} />
+
+          <Route path="*" element={<Navigate to="/" />} />
+
+        </Routes>
+    </Router>
+
+<Footer />
+        </>
   );
 }
 
